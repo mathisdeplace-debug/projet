@@ -1,9 +1,11 @@
 class Carte:
     def __init__(self, numero: int, signe: str):
+        """Crée une carte avec son numéro (2 à 14) et son signe"""
         self.__numero = numero
         self.__signe = signe
 
     def __repr__(self):
+        """Affiche la carte en texte"""
         numero = self.__numero
         signe = self.__signe
 
@@ -25,31 +27,36 @@ class Carte:
         elif numero == 14:
             return f"As de {signe}"
 
-    def __eq__(self,autre):
-        if autre.numero() == self.numero() :
+    def __eq__(self, autre):
+        """Retourne True si les deux cartes ont le même numéro"""
+        if autre.numero() == self.numero():
             return True
         else:
             return False
 
-    def __lt__(self,autre):
-        if autre.numero() > self.numero() :
+    def __lt__(self, autre):
+        """Retourne True si cette carte est plus petite que l'autre"""
+        if autre.numero() > self.numero():
             return True
         else:
             return False
 
-    def __gt__(self,autre):
-        if autre.numero() < self.numero() :
+    def __gt__(self, autre):
+        """Retourne True si cette carte est plus grande que l'autre."""
+        if autre.numero() < self.numero():
             return True
         else:
             return False
 
     def numero(self) -> int:
+        """Retourne le numéro de la carte."""
         return self.__numero
 
     def signe(self) -> str:
+        """Retourne le signe de la carte."""
         return self.__signe
 
-        
+
 def test_carte():
     print(Carte(10, "pique") < Carte(14, "trefle"))
 
